@@ -1,0 +1,19 @@
+image: golang:1.4
+
+services:
+  - redis
+
+# using default docker-link env
+env:
+  - REDIS_PORT_6379_TCP_PROTO = "tcp"
+  - REDIS_PASSWORD = ""
+
+script:
+  - sudo apt-get update
+
+  - mkdir -p /gopath/src/golang-redis-sample
+  - mv ./* /gopath/src/golang-redis-sample
+
+  - export GOPATH=/gopath
+  - go get -t golang-redis-sample
+  - go test golang-redis-sample
