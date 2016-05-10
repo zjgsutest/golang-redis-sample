@@ -10,8 +10,8 @@ import (
 )
 
 func init() {
-    Config()
-    MustConnectRedis()
+    //Config()
+    // MustConnectRedis()
 }
 
 func main() {
@@ -34,18 +34,18 @@ func index(res http.ResponseWriter, req *http.Request) {
     }()
 
     log.Println("Index home")
-    log.Println()
 
-    err := IncNum()
-    if err != nil {
+   // err := IncNum()
+    //if err != nil {
         log.Println(err)
-    }
-    request, err := GetNum()
-    if err != nil {
-        res.WriteHeader(http.StatusInternalServerError)
-        log.Println(err)
-        return
-    }
+    //}
+    request := 10
+    // request, err := GetNum()
+    //if err != nil {
+    //    res.WriteHeader(http.StatusInternalServerError)
+    //    log.Println(err)
+    //    return
+    //}
 
     res.Write([]byte(fmt.Sprintf("Request number is %d", request)))
 }
