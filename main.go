@@ -37,7 +37,7 @@ func index(res http.ResponseWriter, req *http.Request) {
 
    // err := IncNum()
     //if err != nil {
-        log.Println(err)
+    //    log.Println(err)
     //}
     request := 10
     // request, err := GetNum()
